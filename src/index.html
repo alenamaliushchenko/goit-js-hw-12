@@ -1,24 +1,28 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>Image Search App</title>
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="path/to/css-loader.css" >
+
   </head>
   <body>
-    <load ="partials/header.html" />
-
     <section>
-      <h1>Example page title</h1>
-      <!-- Path to images as from index.html file -->
-      <img src="./img/javascript.svg" alt="" />
+      <form id="searchForm">
+        <input type="text" id="searchInput" name="query" placeholder="Search images..." required>
+        <button type="submit">Search</button>
+      </form>
+      <div id="gallery" class="gallery"></div>
+      <div class="loader-container">
+        <span class="loader"></span>
+        <div class="loading-message">Loading images, please wait...</div>
+      </div>
+      <button id="loadMoreBtn">Load more</button>
     </section>
-
-    <!-- Loads the specified .html file -->
-    <load ="partials/vite-promo.html" />
-
-    <script type="module" src="./main.js"></script>
+    <script type="module" src="./main.js" defer></script>
   </body>
 </html>
