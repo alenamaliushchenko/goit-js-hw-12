@@ -1,8 +1,8 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-function createImageCard ({webformatURL, largeImageURL, tags, likes, views, comments, downloads}) {
-    return`
+function createImageCard ({webformatURL, largeImageURL, likes, views, comments, downloads}) {
+    return `
         <div class="photo-card">
             <a href="${largeImageURL}">
                 <img src="${webformatURL}" alt="${largeImageURL}"  loading="lazy" />
@@ -36,4 +36,4 @@ function renderGallery(galleryElement, images) {
     lightbox.refresh();
 }
 
-export{clearGallery, renderGallery, createImageCard};
+export{ clearGallery, renderGallery, createImageCard };
