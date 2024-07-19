@@ -75,6 +75,8 @@
 }
 #loadMoreBtn{
   display: none;
+  margin: 20px auto;
+  cursor: pointer;
 }
 .photo-card img {
   width: 100%;

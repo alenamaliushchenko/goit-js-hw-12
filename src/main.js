@@ -2,7 +2,6 @@ import { clearGallery, renderGallery } from "./js/render-functions";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 import { smoothScroll, checkIfMoreImagesAvailable, fetchImages } from "./js/pixabay-api";
-import axios from 'axios';
 
 const refs = {
     searchForm: document.getElementById('searchForm'),
@@ -32,7 +31,7 @@ async function handleSearch(event){
     if (!params.q) {
         iziToast.error({
           title: 'Error',
-          message: 'Please enter a search query!',
+          message: 'Sorry, there are no images matching your search query. Please try again!',
         }); 
         form.reset();
         return;
@@ -53,10 +52,6 @@ async function handleSearch(event){
         }    
     } catch (error) {
         hideLoader();
-        iziToast.error({
-            title: 'Error',
-            message: 'Sorry, there are no images matching your search query. Please try again!',
-        });
     }
 }
 async function loadMoreImages(){
@@ -70,10 +65,6 @@ async function loadMoreImages(){
         smoothScroll();
     } catch (error) {
         hideLoader();
-        iziToast.error({
-            title: 'Error',
-            message: 'Sorry, there are no images matching your search query. Please try again!',
-        });
     }
 }
 function showLoader() {
