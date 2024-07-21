@@ -43,7 +43,7 @@ async function handleSearch(event){
         if (data.hits.length > 0) {
             renderGallery(refs.imagesContainer, data.hits);
             refs.loadMoreBtn.style.display = 'block';
-            checkIfMoreImagesAvailable(data.totalHits);
+            checkIfMoreImagesAvailable(data.totalHits, params.page, params.per_page);
         } else {
             iziToast.error({
                 title: 'Error',
@@ -61,7 +61,7 @@ async function loadMoreImages(){
         const data = await fetchImages(params.q, params.page, params.per_page);
         hideLoader();
         renderGallery (refs.imagesContainer, data.hits);
-        checkIfMoreImagesAvailable (data.totalHits, params.page, params.per_page, refs.loadMoreBtn);
+        checkIfMoreImagesAvailable (data.totalHits, params.page, params.per_page);
         smoothScroll();
     } catch (error) {
         hideLoader();
@@ -77,3 +77,4 @@ function hideLoader() {
     refs.loadingMessage.classList.remove('is-active');
     refs.loaderContainer.style.display = 'none';
 }
+export { refs };
